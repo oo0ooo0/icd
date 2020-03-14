@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Item from './components/Item';
 import Masonry from 'react-masonry-css';
 import LayoutContainer from './components/LayoutContainer';
+import dummyData from './dummy/feeds.json';
 
 const StyledFeeds = styled.main`
   .my-masonry-grid {
@@ -26,6 +27,10 @@ const StyledFeeds = styled.main`
 `;
 
 function Feeds() {
+  const {
+    data: { list: feeds },
+  } = dummyData;
+  console.log(feeds);
   return (
     <StyledFeeds>
       <LayoutContainer>
@@ -36,89 +41,9 @@ function Feeds() {
           className='my-masonry-grid'
           columnClassName='my-masonry-grid_column'
         >
-          <div className='item'>
-            11111111111 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1
-            item1
-          </div>
-          <div className='item'>
-            2222222222 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1
-            item1 item1
-          </div>
-          <div className='item'>
-            33333333 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1
-            item1 item1
-          </div>
-          <div className='item'>
-            44 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1
-          </div>
-          <div className='item'>
-            55 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1
-          </div>
-          <div className='item'>
-            66 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1
-          </div>
-          <div className='item'>77</div>
-          <div className='item'>
-            88 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1 item1 item1 item1
-            item1 item1 item1 item1 item1 item1 item1 item1 item1 item1 item1item1 item1 item1 item1
-            item1
-          </div>
-          <div className='item'>item4</div>
-          <div className='item'>item5</div>
-          <div className='item'>item1</div>
-          <div className='item'>item2</div>
-          <div className='item'>item3</div>
-          <div className='item'>item4</div>
-          <div className='item'>item5</div>
-          {/* <Item /> */}
+          {feeds.map((feed, index) => {
+            return <Item key={index} {...feed} />;
+          })}
         </Masonry>
       </LayoutContainer>
     </StyledFeeds>
