@@ -21,8 +21,8 @@ const StyledFeeds = styled.main`
   /* Style your items */
   .my-masonry-grid_column > div {
     /* change div to reference your elements you put in <Masonry> */
-    background: grey;
-    margin-bottom: 30px;
+    background: none;
+    margin-bottom: 200px;
   }
 `;
 

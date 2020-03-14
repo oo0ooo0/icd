@@ -3,48 +3,64 @@ import styled from 'styled-components';
 import LayoutContainer from './components/LayoutContainer';
 
 const StyledHeader = styled.header`
+  .header-cont {
+    width: 92%;
+    margin: auto;
+  }
   .top-menu-wrap {
-    background-color: rgba(0, 0, 0, 0.1);
-
+    margin-top: 10px;
     .top-menu {
       display: flex;
       justify-content: flex-end;
 
       li {
-        background-color: rgba(0, 0, 0, 0.1);
-        margin-left: 10px;
+        margin-left: 50px;
 
         a {
+          font: normal 400 12px/1 'Lato';
+          color: #707070;
         }
       }
     }
   }
 
   .main-menu-wrap {
-    display: flex;
-  }
-
-  .logo {
-    h1 {
-      a {
-      }
-    }
-  }
-
-  .gnb {
-    width: 100%;
-    display: flex;
-    // background-color: rgba(255, 0, 0, 0.1);
-
-    ul {
-      width: 100%;
-      // background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    border-top: 1px solid lightGray;
+    border-bottom: 1px solid lightGray;
+    margin-bottom: 100px;
+    .header-cont {
       display: flex;
-      justify-content: space-around;
-      align-items: center;
 
-      li {
-        a {
+      .logo {
+        display: flex;
+        align-items: center;
+        h1 {
+          a {
+          }
+        }
+      }
+
+      .gnb {
+        width: 100%;
+        display: flex;
+
+        ul {
+          margin-left: 200px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          li {
+            padding: 30px 0px;
+            a {
+              margin-top: 10px;
+              display: inline-block;
+              font: normal 900 17px/1 'Lato';
+              color: #1d1e21;
+            }
+          }
         }
       }
     }
@@ -54,8 +70,8 @@ const StyledHeader = styled.header`
 function Header() {
   return (
     <StyledHeader>
-      <LayoutContainer>
-        <div className='top-menu-wrap'>
+      <div className='top-menu-wrap'>
+        <div className='header-cont'>
           <ul className='top-menu'>
             <li>
               <a href='#'>로그인</a>
@@ -68,9 +84,11 @@ function Header() {
             </li>
           </ul>
         </div>
-        {/* //topMenu */}
+      </div>
+      {/* //topMenu */}
 
-        <div className='main-menu-wrap'>
+      <div className='main-menu-wrap'>
+        <div className='header-cont'>
           <div className='logo'>
             <h1>
               <a href='#'>d.code</a>
@@ -101,21 +119,8 @@ function Header() {
             </ul>
           </div>
           {/* //gnb */}
-
-          {/* <div className='search-wrap'>
-            <div className='search'>
-              <input type='text' className='input-search' placeholder='검색'></input>
-              <button type='button' className='btn-search'>
-                <i className='fas fa-search' />
-              </button>
-              <button type='button' className='btn-cart'>
-                <i className='fas fa-shopping-cart' />
-              </button>
-            </div>
-          </div> */}
-          {/* //search */}
         </div>
-      </LayoutContainer>
+      </div>
     </StyledHeader>
   );
 }

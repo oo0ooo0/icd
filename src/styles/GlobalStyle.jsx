@@ -78,16 +78,8 @@ p {
 }
 
 /* font reset */
-body,
-input,
-textarea,
-select,
-button,
-table {
-  font-family: 'Lato';
-  color: #000;
-  font-size: 12px;
-  line-height: 1.5;
+body {
+  font: normal 400 12px/1.5 'Lato';
 }
 
 /* font style reset */
