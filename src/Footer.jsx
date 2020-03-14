@@ -1,10 +1,41 @@
 import React from 'react';
-import './Footer.css';
+import styled from 'styled-components';
+import LayoutContainer from './components/LayoutContainer';
+
+const StyledFooter = styled.footer`
+  .service-area {
+    display: flex;
+    > ul {
+      width: 20%;
+      background-color: rgba(255, 0, 0, 0.1);
+      li {
+        margin: 5px;
+      }
+    }
+    .join-list {
+      li a {
+        font: normal 500 14px/42px 'Lato';
+      }
+    }
+    .social {
+      .social-icon {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .footer {
+    > div {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+`;
 
 function Footer() {
   return (
-    <footer id='footer' className='footer-wrap'>
-      <div className='container'>
+    <StyledFooter>
+      <LayoutContainer>
         <div className='service-area'>
           <ul className='join-list'>
             <li>
@@ -116,8 +147,8 @@ function Footer() {
             <p>FAX 02-6499-0617 | E-mail contact@itsdcode.com</p>
           </div>
         </div>
-      </div>
-    </footer>
+      </LayoutContainer>
+    </StyledFooter>
   );
 }
 

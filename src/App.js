@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
-import './App.css';
-import './Reset.css';
 import Header from './Header';
 import Feeds from './Feeds';
 import Footer from './Footer';
-
+import GlobalStyle from './styles/GlobalStyle';
 function App() {
   return (
     <Fragment>
+      <GlobalStyle />
       <Header />
       <Feeds />
       <Footer />

@@ -1,10 +1,60 @@
 import React from 'react';
-import './Header.css';
+import styled from 'styled-components';
+import LayoutContainer from './components/LayoutContainer';
+
+const StyledHeader = styled.header`
+  .top-menu-wrap {
+    background-color: rgba(0, 0, 0, 0.1);
+
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+
+      li {
+        background-color: rgba(0, 0, 0, 0.1);
+        margin-left: 10px;
+
+        a {
+        }
+      }
+    }
+  }
+
+  .main-menu-wrap {
+    display: flex;
+  }
+
+  .logo {
+    h1 {
+      a {
+      }
+    }
+  }
+
+  .gnb {
+    width: 100%;
+    display: flex;
+    // background-color: rgba(255, 0, 0, 0.1);
+
+    ul {
+      width: 100%;
+      // background-color: rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      li {
+        a {
+        }
+      }
+    }
+  }
+`;
 
 function Header() {
   return (
-    <header id='header' className='navBar'>
-      <div className='container'>
+    <StyledHeader>
+      <LayoutContainer>
         <div className='top-menu-wrap'>
           <ul className='top-menu'>
             <li>
@@ -65,8 +115,8 @@ function Header() {
           </div> */}
           {/* //search */}
         </div>
-      </div>
-    </header>
+      </LayoutContainer>
+    </StyledHeader>
   );
 }
 
