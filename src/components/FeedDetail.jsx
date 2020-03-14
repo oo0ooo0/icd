@@ -1,55 +1,94 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import FeedText from './FeedText';
+import { useLocation, useHistory } from 'react-router-dom';
+import { createTitle } from '../utils/common';
+
+const FOOTER_HEIGHT = 318;
 
 const StyledFeedDetailWrapper = styled.div`
-  float: left;
   position: relative;
+  display: flex;
 
   .media-list-area {
-    width: 38%;
+    flex: none;
+    margin-left: 4%;
+    width: 34%;
     img {
       width: 100%;
     }
   }
-  .board-area {
-    top: 230px;
-    left: 40%;
-    position: fixed;
-    width: 56%;
-    .board {
-      width: 100%;
-      background-color: yellow;
-    }
+`;
+
+const BoardArea = styled.div`
+  padding: 38px 0;
+  border-top: 2px solid #1d1e21;
+  border-bottom: 1px solid #e3e3e2;
+  width: 56%;
+  max-width: 990px;
+  flex: none;
+  position: ${props => (props.isScrolled ? `absolute` : 'fixed')};
+  top: ${props => (props.isScrolled ? 'inherit' : '230px')};
+  bottom: ${props => (props.isScrolled ? '0' : 'inherit')};
+  left: 40%;
+  .board {
+    width: 100%;
+    background-color: yellow;
   }
 `;
 
 function FeedDetail() {
   const location = useLocation();
+  const history = useHistory();
+  const mediaListRef = useRef(null);
+  const boardRef = useRef(null);
+  const [isScrolled, setScrolled] = useState(false);
+
   const { id, tags, text, mediaList, mdName, createdAt } = location.state;
+
   // console.log(location);
+
+  const handleScrollEvent = event => {
+    if (mediaListRef.current && boardRef.current) {
+      const boardRect = boardRef.current.getBoundingClientRect();
+
+      if (document.body.clientHeight - (FOOTER_HEIGHT + boardRect.height) - 230 < window.scrollY) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
+  };
+  useEffect(() => {
+    if (mediaListRef.current) {
+      window.addEventListener('scroll', handleScrollEvent);
+    }
+    return () => {
+      window.removeEventListener('scroll', handleScrollEvent);
+    };
+  });
+
+  console.log();
   return (
-    <div className='clearfix'>
-      <StyledFeedDetailWrapper>
-        <div className='media-list-area'>
-          {mediaList.map((media, index) => {
-            return <img key={index} src={media.url}></img>;
+    <StyledFeedDetailWrapper>
+      <div className='media-list-area' ref={mediaListRef}>
+        {mediaList.map((media, index) => {
+          return <img key={index} src={media.url}></img>;
+        })}
+      </div>
+
+      <BoardArea isScrolled={isScrolled} className='board-area' ref={boardRef}>
+        <div className='board'>
+          <span>{mdName}</span>
+          <em>{createdAt}</em>
+          <h1>{createTitle(text)}</h1>
+          <FeedText>{text}</FeedText>
+          {tags.map((tag, index) => {
+            return <span key={index}>#{tag}</span>;
           })}
         </div>
-
-        <div className='board-area'>
-          <div className='board'>
-            <span>{mdName}</span>
-            <em>{createdAt}</em>
-            <h1>title</h1>
-            <p>{text}</p>
-            {tags.map((tag, index) => {
-              return <span key={index}>#{tag}</span>;
-            })}
-          </div>
-        </div>
-      </StyledFeedDetailWrapper>
-    </div>
+      </BoardArea>
+    </StyledFeedDetailWrapper>
   );
 }
 

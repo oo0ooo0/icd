@@ -16,10 +16,11 @@ function App() {
         <Route path={'/'} exact>
           <Feeds />
         </Route>
-        <Route path={'/feed/:id'}>
-          <FeedDetail />
-        </Route>
       </MainContainer>
+
+      <Route path={'/feed/:id'}>
+        <FeedDetail />
+      </Route>
       <Footer />
     </BrowserRouter>
   );
