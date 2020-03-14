@@ -1,5 +1,7 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
+import LikedButton from './LikedButton';
+import { Link } from 'react-router-dom';
 
 const StyledItem = styled.div`
   .item-image-wrap {
@@ -7,27 +9,23 @@ const StyledItem = styled.div`
       width: 100%;
     }
   }
-  .item-wrap {
-    width: 92%;
-    margin: 0 auto;
-    .item-md {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      .item-md-image {
-        margin-right: 10px;
-        border-radius: 50%;
-        height: 50px;
-      }
-      .item-md-name {
-        font-size: 20px;
-        line-height: 1;
-      }
+  .item-md {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .item-md-image {
+      padding-top: 10px;
+      margin-right: 10px;
+      height: 70px;
+    }
+    .item-md-name {
+      font-size: 20px;
+      line-height: 60px;
     }
 
     .item-info {
       .tags {
-        margin: 10px 0;
+        margin-bottom: 10px;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -43,6 +41,8 @@ const StyledItem = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: 14px;
+    color: #999;
+
     ul {
       display: flex;
       li {
@@ -52,10 +52,14 @@ const StyledItem = styled.div`
         }
       }
     }
+    .item-date {
+      font-style: italic;
+    }
   }
 `;
 
 const Item = ({
+  id,
   mediaList,
   text,
   mdInfo: { mdName, mdThumb },
@@ -65,13 +69,21 @@ const Item = ({
   tags,
   createdAt,
 }) => {
+  const [isLiked, setLiked] = useState(false);
+
+  const handleClick = () => {
+    setLiked(!isLiked);
+  };
+
   return (
     <StyledItem>
-      <figure className='item-image-wrap'>
-        <img src={mediaList[0].url} className='item-image' />
-      </figure>
+      <Link
+        to={{ pathname: `/feed/${id}`, state: { id, tags, text, mediaList, mdName, createdAt } }}
+      >
+        <figure className='item-image-wrap'>
+          <img src={mediaList[0].url} className='item-image' />
+        </figure>
 
-      <div className='item-wrap'>
         <figure className='item-md'>
           <img src={mdThumb} className='item-md-image' />
           <figcaption className='item-md-name'>{mdName}</figcaption>
@@ -89,23 +101,25 @@ const Item = ({
             }}
           ></p>
         </article>
-        <div className='item-footer'>
-          <em className='item-date'>{createdAt}</em>
-          <ul>
-            <li>
-              <i className='far fa-heart'></i>
-              <span>{likedCount}</span>
-            </li>
-            <li>
-              <i className='far fa-comment-alt'></i>
-              <span>{replyCount}</span>
-            </li>
-            <li>
-              <i className='fab fa-facebook-square'></i>
-              <span>{sharedCount}</span>
-            </li>
-          </ul>
-        </div>
+      </Link>
+      <div className='item-footer'>
+        <em className='item-date'>{createdAt}</em>
+        <ul>
+          <li onClick={handleClick}>
+            <LikedButton color={isLiked ? 'red' : 'lightGray'}>
+              <i className='fas fa-heart'></i>
+            </LikedButton>
+            <span>{likedCount}</span>
+          </li>
+          <li>
+            <i className='far fa-comment-alt'></i>
+            <span>{replyCount}</span>
+          </li>
+          <li>
+            <i className='fab fa-facebook-square'></i>
+            <span>{sharedCount}</span>
+          </li>
+        </ul>
       </div>
     </StyledItem>
   );

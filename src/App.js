@@ -3,14 +3,25 @@ import Header from './Header';
 import Feeds from './Feeds';
 import Footer from './Footer';
 import GlobalStyle from './styles/GlobalStyle';
+import { MainContainer } from './components/Containers';
+import FeedDetail from './components/FeedDetail';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 function App() {
   return (
-    <Fragment>
+    <BrowserRouter>
       <GlobalStyle />
       <Header />
-      <Feeds />
+      <MainContainer>
+        <Route path={'/'} exact>
+          <Feeds />
+        </Route>
+        <Route path={'/feed/:id'}>
+          <FeedDetail />
+        </Route>
+      </MainContainer>
       <Footer />
-    </Fragment>
+    </BrowserRouter>
   );
 }
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import LayoutContainer from './components/LayoutContainer';
 
 const StyledHeader = styled.header`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
   .header-cont {
     width: 92%;
     margin: auto;
@@ -28,7 +31,6 @@ const StyledHeader = styled.header`
     margin-top: 10px;
     border-top: 1px solid lightGray;
     border-bottom: 1px solid lightGray;
-    margin-bottom: 100px;
     .header-cont {
       display: flex;
 

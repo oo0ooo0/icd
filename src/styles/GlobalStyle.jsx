@@ -83,7 +83,6 @@ body {
 }
 
 /* font style reset */
-em,
 address {
   font-style: normal;
 }

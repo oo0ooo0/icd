@@ -1,26 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import LayoutContainer from './components/LayoutContainer';
+import { LayoutContainer } from './components/Containers';
 
 const StyledFooter = styled.footer`
-  .service-area {
-    display: flex;
-    > ul {
-      width: 20%;
-      background-color: rgba(255, 0, 0, 0.1);
-      li {
-        margin: 5px;
+  .service-area-wrap {
+    border-top: 1px solid lightGray;
+    border-bottom: 1px solid lightGray;
+    padding: 20px 0px;
+
+    .service-area {
+      display: flex;
+
+      h3 {
+        font: normal 700 14px/28px 'Lato';
       }
-    }
-    .join-list {
-      li a {
-        font: normal 500 14px/42px 'Lato';
+      > ul {
+        width: 20%;
+        li {
+          margin: 5px;
+        }
       }
-    }
-    .social {
-      .social-icon {
-        display: flex;
-        justify-content: space-between;
+      .join-list {
+        li a {
+          font: normal 700 14px/28px 'Lato';
+        }
+      }
+      .social {
+        .social-icon {
+          display: flex;
+          justify-content: flex-start;
+        }
+      }
+      i {
+        color: lightGray;
+        font-size: 20px;
+        margin-right: 5px;
       }
     }
   }
@@ -35,103 +49,97 @@ const StyledFooter = styled.footer`
 function Footer() {
   return (
     <StyledFooter>
-      <LayoutContainer>
-        <div className='service-area'>
-          <ul className='join-list'>
-            <li>
-              <a href='#none'>엔코드</a>
-            </li>
-            <li>
-              <a>로그인</a>
-            </li>
-            <li>
-              <a>회원가입</a>
-            </li>
-          </ul>
-          <ul className='Service-center'>
-            <li>
-              <h3>고객센터</h3>
-              <ul>
+      <LayoutContainer width={100}>
+        <div className='service-area-wrap'>
+          <LayoutContainer>
+            <div className='service-area'>
+              <ul className='join-list'>
                 <li>
-                  <a href='#none'>02-6204-0617‬</a>
+                  <a href='#none'>엔코드</a>
                 </li>
                 <li>
-                  <a>1:1 채팅문의</a>
+                  <a href='https://www.itsdcode.com/login'>로그인</a>
                 </li>
                 <li>
-                  <a>이용약관</a>
-                </li>
-                <li>
-                  <a>개인정보처리방침</a>
+                  <a href='https://www.itsdcode.com/signUp'>회원가입</a>
                 </li>
               </ul>
-            </li>
-          </ul>
-          <ul className='dcode-info'>
-            <li>
-              <h3>ABOUT D.CODE</h3>
-              <ul>
+              <ul className='Service-center'>
                 <li>
-                  <a href='http://home.itsdcode.com/' target='_blank'>
-                    디코드 소개
-                  </a>
+                  <h3>고객센터</h3>
+                  <ul>
+                    <li>
+                      <a href='#none'>02-6204-0617‬</a>
+                    </li>
+                    <li>
+                      <a>1:1 채팅문의</a>
+                    </li>
+                    <li>
+                      <a>이용약관</a>
+                    </li>
+                    <li>
+                      <a>개인정보처리방침</a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
-            </li>
-          </ul>
-          <ul className='social'>
-            <li>
-              <h3>SOCIAL</h3>
-              <ul className='social-icon'>
+              <ul className='dcode-info'>
                 <li>
-                  <a
-                    href='https://business.facebook.com/itsdcode/?business_id=1642748722674826'
-                    target='_blank'
-                  >
-                    🎱
-                  </a>
-                </li>
-                <li>
-                  <a href='https://www.instagram.com/d.code_official/?hl=ko' target='_blank'>
-                    🎱
-                  </a>
-                </li>
-                <li>
-                  <a href='https://itsdcode.blog.me/' target='_blank'>
-                    🎱
-                  </a>
-                </li>
-                <li>
-                  <a href='https://brunch.co.kr/@zskeem' target='_blank'>
-                    🎱
-                  </a>
+                  <h3>ABOUT D.CODE</h3>
+                  <ul>
+                    <li>
+                      <a href='http://home.itsdcode.com/' target='_blank'>
+                        디코드 소개
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
-            </li>
-          </ul>
-          <ul className='application'>
-            <li>
-              <h3>APPLICATION</h3>
-              <ul className='app-icon'>
+              <ul className='social'>
                 <li>
-                  <a href='http://bit.ly/2swoxj8' target='_blank'>
-                    <span className='icon-text'>
-                      <i className='icon-ico apple'>🍏</i>
-                    </span>
-                    앱스토어
-                  </a>
-                </li>
-                <li>
-                  <a href='http://bit.ly/2tY1l1P' target='_blank'>
-                    <span className='icon-text'>
-                      <i className='icon-ico playstore'>🥥</i>
-                    </span>
-                    플레이스토어
-                  </a>
+                  <h3>SOCIAL</h3>
+                  <ul className='social-icon'>
+                    <li>
+                      <a
+                        href='https://business.facebook.com/itsdcode/?business_id=1642748722674826'
+                        target='_blank'
+                      >
+                        <i className='fab fa-facebook-square'></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href='https://www.instagram.com/d.code_official/?hl=ko' target='_blank'>
+                        <i className='fab fa-instagram-square'></i>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
-            </li>
-          </ul>
+              <ul className='application'>
+                <li>
+                  <h3>APPLICATION</h3>
+                  <ul className='app-icon'>
+                    <li>
+                      <a href='http://bit.ly/2swoxj8' target='_blank'>
+                        <span className='icon-text'>
+                          <i className='fab fa-apple'></i>
+                        </span>
+                        앱스토어
+                      </a>
+                    </li>
+                    <li>
+                      <a href='http://bit.ly/2tY1l1P' target='_blank'>
+                        <span className='icon-text'>
+                          <i className='fab fa-google-play'></i>
+                        </span>
+                        플레이스토어
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </LayoutContainer>
         </div>
         <div className='footer'>
           <div className='copyw'>ⓒ 2019 N.CODE, Inc. All Rights Reserved</div>
