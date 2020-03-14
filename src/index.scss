@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+#header {}
+
+#feed {}
+
+#footer {}
+
+/* -------------container */
+.container {
+  width: 92%;
+  margin: 10px auto;
+  background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+/* -------------header */
+#header.navBar {}
+
+.top-menu-wrap {
+  background-color: rgba(0, 0, 0, 0.1);
+
+  .top-menu {
+    display: flex;
+    justify-content: flex-end;
+
+    li {
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-left: 10px;
+
+      a {}
+    }
+  }
+}
+
+
+
+.main-menu-wrap {
+  display: flex;
+}
+
+.logo {
+  h1 {
+    a {}
+  }
+}
+
+.gnb {
+  width: 100%;
+  display: flex;
+  // background-color: rgba(255, 0, 0, 0.1);
+
+  ul {
+    width: 100%;
+    // background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+    li {
+
+      a {}
+    }
+  }
+}
