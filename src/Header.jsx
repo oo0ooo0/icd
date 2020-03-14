@@ -94,7 +94,7 @@ function Header() {
         <div className='header-cont'>
           <div className='logo'>
             <h1>
-              <a href='#'>d.code</a>
+              <a href='/'>d.code</a>
             </h1>
           </div>
           {/* //logo */}
