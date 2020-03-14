@@ -67,54 +67,54 @@
 }
 
 /* -------------Feeds */
-#Feeds.items {
-  .item-wrap {
-    background-color: rgba(255, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
+// #Feeds.items {
+//   .item-wrap {
+//     background-color: rgba(255, 0, 0, 0.1);
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: start;
 
-    max-height: 700px;
+//     max-height: 700px;
 
-    .item {
-      flex: none;
-      background-color: rgba(255, 0, 0, 0.2);
-      width: 33.33%;
-      word-wrap: normal;
-      height: auto;
+//     .item {
+//       flex: none;
+//       background-color: rgba(255, 0, 0, 0.2);
+//       width: 33.33%;
+//       word-wrap: normal;
+//       height: auto;
 
-      &:nth-child(1) {
-        background-color: red;
-      }
+//       &:nth-child(1) {
+//         background-color: red;
+//       }
 
-      &:nth-child(2) {
-        background-color: orange;
-      }
+//       &:nth-child(2) {
+//         background-color: orange;
+//       }
 
-      &:nth-child(3) {
-        background-color: yellow;
-      }
+//       &:nth-child(3) {
+//         background-color: yellow;
+//       }
 
-      &:nth-child(4) {
-        background-color: yellowgreen;
-      }
+//       &:nth-child(4) {
+//         background-color: yellowgreen;
+//       }
 
-      &:nth-child(5) {
-        background-color: skyblue;
-      }
+//       &:nth-child(5) {
+//         background-color: skyblue;
+//       }
 
-      &:nth-child(6) {
-        background-color: blue;
-      }
+//       &:nth-child(6) {
+//         background-color: blue;
+//       }
 
-      &:nth-child(7) {
-        background-color: blueviolet;
-      }
-    }
-  }
-}
+//       &:nth-child(7) {
+//         background-color: blueviolet;
+//       }
+//     }
+//   }
+// }
 
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
@@ -136,3 +136,32 @@
 }
 
 /* -------------footer */
+#footer.footer-wrap {
+  .service-area {
+    display: flex;
+    > ul {
+      width: 20%;
+      background-color: rgba(255, 0, 0, 0.1);
+      li {
+        margin: 5px;
+      }
+    }
+    .join-list {
+      li a {
+        font: normal 500 14px/42px 'Lato';
+      }
+    }
+    .social {
+      .social-icon {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .footer {
+    > div {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+}
