@@ -1,66 +1,138 @@
 @charset "utf-8";
 
-#header {}
+#header {
+}
 
-#feed {}
+#feed {
+}
 
-#footer {}
+#footer {
+}
 
 /* -------------container */
 .container {
   width: 92%;
   margin: 10px auto;
   background-color: rgba(0, 0, 0, 0.1);
-
 }
 
 /* -------------header */
-#header.navBar {}
+#header.navBar {
+  .top-menu-wrap {
+    background-color: rgba(0, 0, 0, 0.1);
 
-.top-menu-wrap {
-  background-color: rgba(0, 0, 0, 0.1);
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
 
-  .top-menu {
-    display: flex;
-    justify-content: flex-end;
+      li {
+        background-color: rgba(0, 0, 0, 0.1);
+        margin-left: 10px;
 
-    li {
-      background-color: rgba(0, 0, 0, 0.1);
-      margin-left: 10px;
-
-      a {}
+        a {
+        }
+      }
     }
   }
-}
 
-
-
-.main-menu-wrap {
-  display: flex;
-}
-
-.logo {
-  h1 {
-    a {}
+  .main-menu-wrap {
+    display: flex;
   }
-}
 
-.gnb {
-  width: 100%;
-  display: flex;
-  // background-color: rgba(255, 0, 0, 0.1);
+  .logo {
+    h1 {
+      a {
+      }
+    }
+  }
 
-  ul {
+  .gnb {
     width: 100%;
-    // background-color: rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    // background-color: rgba(255, 0, 0, 0.1);
 
+    ul {
+      width: 100%;
+      // background-color: rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
 
-    li {
-
-      a {}
+      li {
+        a {
+        }
+      }
     }
   }
 }
+
+/* -------------Feeds */
+#Feeds.items {
+  .item-wrap {
+    background-color: rgba(255, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+
+    max-height: 700px;
+
+    .item {
+      flex: none;
+      background-color: rgba(255, 0, 0, 0.2);
+      width: 33.33%;
+      word-wrap: normal;
+      height: auto;
+
+      &:nth-child(1) {
+        background-color: red;
+      }
+
+      &:nth-child(2) {
+        background-color: orange;
+      }
+
+      &:nth-child(3) {
+        background-color: yellow;
+      }
+
+      &:nth-child(4) {
+        background-color: yellowgreen;
+      }
+
+      &:nth-child(5) {
+        background-color: skyblue;
+      }
+
+      &:nth-child(6) {
+        background-color: blue;
+      }
+
+      &:nth-child(7) {
+        background-color: blueviolet;
+      }
+    }
+  }
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 30px;
+}
+
+/* -------------footer */
