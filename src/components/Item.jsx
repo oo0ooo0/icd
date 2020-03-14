@@ -1,6 +1,8 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import LikedButton from './LikedButton';
+import FeedText from './FeedText';
+
 import { Link } from 'react-router-dom';
 
 const StyledItem = styled.div`
@@ -94,12 +96,7 @@ const Item = ({
               return <h4 key={index}>#{tag}</h4>;
             })}
           </div>
-          <p
-            className='item-text'
-            dangerouslySetInnerHTML={{
-              __html: text.replace(/\n/g, '<br/>'),
-            }}
-          ></p>
+          <FeedText className='item-text'>{text}</FeedText>
         </article>
       </Link>
       <div className='item-footer'>
