@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Item from './components/Item';
 import Masonry from 'react-masonry-css';
-import dummyData from './dummy/feeds.json';
+import { useSelector } from 'react-redux';
 
 const StyledFeeds = styled.main`
   margin-top: 230px;
@@ -24,10 +24,7 @@ const StyledFeeds = styled.main`
 `;
 
 function Feeds() {
-  const {
-    data: { list: feeds },
-  } = dummyData;
-  console.log(feeds);
+  const feeds = useSelector(state => state.feeds);
   return (
     <StyledFeeds>
       <h2 className='title'>Feed</h2>
@@ -37,9 +34,11 @@ function Feeds() {
         className='my-masonry-grid'
         columnClassName='my-masonry-grid_column'
       >
-        {feeds.map((feed, index) => {
-          return <Item key={index} {...feed} />;
-        })}
+        {Object.keys(feeds)
+          .reverse()
+          .map(key => {
+            return <Item key={key} {...feeds[key]} />;
+          })}
       </Masonry>
     </StyledFeeds>
   );

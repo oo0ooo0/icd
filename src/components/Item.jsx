@@ -4,6 +4,7 @@ import LikedButton from './LikedButton';
 import FeedText from './FeedText';
 
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const StyledItem = styled.div`
   .item-image-wrap {
@@ -60,7 +61,7 @@ const StyledItem = styled.div`
   }
 `;
 
-const Item = ({
+const MemoizeItem = React.memo(function Item({
   id,
   mediaList,
   text,
@@ -70,18 +71,17 @@ const Item = ({
   sharedCount = 0,
   tags,
   createdAt,
-}) => {
-  const [isLiked, setLiked] = useState(false);
+  isLiked,
+}) {
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setLiked(!isLiked);
+    dispatch({ type: 'FEED_LIKE', payload: { id } });
   };
 
   return (
     <StyledItem>
-      <Link
-        to={{ pathname: `/feed/${id}`, state: { id, tags, text, mediaList, mdName, createdAt } }}
-      >
+      <Link to={{ pathname: `/feed/${id}` }}>
         <figure className='item-image-wrap'>
           <img src={mediaList[0].url} className='item-image' />
         </figure>
@@ -120,6 +120,6 @@ const Item = ({
       </div>
     </StyledItem>
   );
-};
+});
 
-export default Item;
+export default MemoizeItem;

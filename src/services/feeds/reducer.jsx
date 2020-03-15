@@ -1,15 +1,29 @@
-import { READ_FEEDS, READ_FEED_DETAIL, FEED_LIKE, FEED_UNLIKE } from './actions';
+import { FEED_LIKE, FEED_UNLIKE } from './actions';
 
-export function feedReducer(state = [], action) {
+const initialState = {};
+
+export function feedReducer(state = initialState, action) {
   switch (action.type) {
-    case READ_FEEDS: {
-      return state;
-    }
-    case READ_FEED_DETAIL: {
-      return state;
-    }
     case FEED_LIKE: {
-      return state;
+      console.log('state[action.payload.id]', state[action.payload.id]);
+      const currentItem = state[action.payload.id];
+      currentItem.isLiked = !currentItem.isLiked;
+
+      if (!currentItem.likedCount) {
+        currentItem.likedCount = 0;
+      }
+
+      if (currentItem.isLiked) {
+        currentItem.likedCount = currentItem.likedCount + 1;
+      } else {
+        currentItem.likedCount = currentItem.likedCount - 1;
+      }
+      console.log('after', currentItem.isLiked);
+      const newState = {
+        ...state,
+        [action.payload.id]: currentItem,
+      };
+      return newState;
     }
     case FEED_UNLIKE: {
       return state;

@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import FeedText from './FeedText';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useHistory, useParams, useLocation } from 'react-router-dom';
 import { createTitle } from '../utils/common';
+import { useSelector } from 'react-redux';
 
 const FOOTER_HEIGHT = 318;
 
@@ -38,15 +39,14 @@ const BoardArea = styled.div`
 `;
 
 function FeedDetail() {
-  const location = useLocation();
   const history = useHistory();
+  const params = useParams();
+  const location = useLocation();
   const mediaListRef = useRef(null);
   const boardRef = useRef(null);
   const [isScrolled, setScrolled] = useState(false);
 
-  const { id, tags, text, mediaList, mdName, createdAt } = location.state;
-
-  // console.log(location);
+  const item = useSelector(state => state.feeds[params.id] || null);
 
   const handleScrollEvent = event => {
     if (mediaListRef.current && boardRef.current) {
@@ -68,7 +68,15 @@ function FeedDetail() {
     };
   });
 
-  console.log();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [location.pathname]);
+  if (!item) {
+    history.push('/');
+    return null;
+  }
+  const { tags, text, mediaList, mdName, createdAt } = item;
+
   return (
     <StyledFeedDetailWrapper>
       <div className='media-list-area' ref={mediaListRef}>
