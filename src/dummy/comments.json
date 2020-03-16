@@ -1,0 +1,47 @@
+{
+  "status": 200,
+  "message": "Feed Comment List 조회",
+  "data": {
+    "list": [
+      {
+        "id": 54,
+        "feedId": 448,
+        "userName": "설지*",
+        "userProfileUrl": "https://k.kakaocdn.net/dn/AaO4J/btqzEdlrrHU/7fnsKLtvIzT2B55JRkiNdK/img_110x110.jpg",
+        "comment": "한국에서도 출시 되나요..?",
+        "createdAt": "2019-12-29 02:37:14",
+        "updatedAt": "2019-12-29 02:37:14",
+        "editable": false
+      },
+      {
+        "id": 52,
+        "feedId": 448,
+        "userName": "주재*",
+        "comment": "와 최애가수랑 hnm이..",
+        "replies": {
+          "list": [
+            {
+              "id": 53,
+              "feedId": 448,
+              "userName": "d.code",
+              "userProfileUrl": "https://s3.ap-northeast-2.amazonaws.com/dcode-prod-bucket//mdInfo/thumb/1542106760-3e82774178a54270.JPG",
+              "comment": "저번 달에 나온 곡도 좋더라구요 ?",
+              "createdAt": "2019-12-16 16:02:57",
+              "updatedAt": "2019-12-16 16:02:57",
+              "editable": false
+            }
+          ],
+          "totalListCount": 1,
+          "totalPages": 1,
+          "isNext": false
+        },
+        "createdAt": "2019-12-16 12:44:57",
+        "updatedAt": "2019-12-16 12:44:57",
+        "editable": false
+      }
+    ],
+    "totalListCount": 2,
+    "totalPages": 1,
+    "isNext": false
+  }
+}
