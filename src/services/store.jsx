@@ -23,7 +23,10 @@ const arrayToKeyValue = array => {
   return result;
 };
 
-const initialState = { feeds: arrayToKeyValue(dummyFeedsData.data.list) };
+const initialState = {
+  feeds: arrayToKeyValue(dummyFeedsData.data.list),
+  comments: dummyCommentsData,
+};
 
 const store = createStore(
   rootReducer,
