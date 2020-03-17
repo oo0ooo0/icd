@@ -97,7 +97,6 @@ function FeedDetail() {
     history.push('/');
     return null;
   }
-  console.log(item);
   const {
     tags,
     text,

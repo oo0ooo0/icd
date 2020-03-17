@@ -3,25 +3,15 @@ import { rootReducer } from './reducers';
 import dummyFeedsData from '../dummy/feeds.json';
 import dummyCommentsData from '../dummy/comments.json';
 
-const arrayToKeyValue = array => {
-  if (!Array.isArray(array)) {
-    return {};
+function arrayToKeyValue(array) {
+  let result = {};
+  for (let i = 0; i < array.length; i++) {
+    result[array[i].id] = array[i];
+    result[array[i].id].isLiked = false;
+    console.log('현재 result 객체', result);
   }
-
-  const result = array.reduce((prev, current) => {
-    if (!Object.prototype.hasOwnProperty(prev, current.id)) {
-      return {
-        [current.id.toString()]: { ...current, isLiked: false },
-        ...prev,
-      };
-    }
-    return {
-      ...prev,
-    };
-  }, {});
-
   return result;
-};
+}
 
 const initialState = {
   feeds: arrayToKeyValue(dummyFeedsData.data.list),
