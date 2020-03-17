@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import FeedText from './FeedText';
+import Comments from './Comments';
 import { useHistory, useParams, useLocation } from 'react-router-dom';
 import { createTitle } from '../utils/common';
 import { useSelector } from 'react-redux';
@@ -15,6 +16,7 @@ const StyledFeedDetailWrapper = styled.div`
     flex: none;
     margin-left: 4%;
     width: 34%;
+    min-height: 700px;
     img {
       width: 100%;
     }
@@ -34,7 +36,26 @@ const BoardArea = styled.div`
   left: 40%;
   .board {
     width: 100%;
-    background-color: yellow;
+    span {
+      font: normal 900 16px;
+    }
+    em {
+      font: normal;
+      margin-left: 10px;
+    }
+    h1 {
+      min-height: 60px;
+      margin-top: 10px;
+      font: normal 900 32px/1.4;
+    }
+    p {
+      padding: 18px 0 24px;
+      font: 16px/1.6;
+      white-space: pre-wrap;
+    }
+    strong {
+      margin-right: 10px;
+    }
   }
 `;
 
@@ -71,11 +92,19 @@ function FeedDetail() {
   useEffect(() => {
     window.scroll(0, 0);
   }, [location.pathname]);
+
   if (!item) {
     history.push('/');
     return null;
   }
-  const { tags, text, mediaList, mdName, createdAt } = item;
+  console.log(item);
+  const {
+    tags,
+    text,
+    mediaList,
+    mdInfo: { mdName, mdThumb },
+    createdAt,
+  } = item;
 
   return (
     <StyledFeedDetailWrapper>
@@ -95,6 +124,7 @@ function FeedDetail() {
             return <span key={index}>#{tag}</span>;
           })}
         </div>
+        <Comments />
       </BoardArea>
     </StyledFeedDetailWrapper>
   );
