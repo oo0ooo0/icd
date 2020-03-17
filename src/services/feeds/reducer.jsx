@@ -1,4 +1,4 @@
-import { FEED_LIKE, FEED_UNLIKE } from './actions';
+import { FEED_LIKE } from './actions';
 
 const initialState = {};
 
@@ -25,9 +25,7 @@ export function feedReducer(state = initialState, action) {
       };
       return newState;
     }
-    case FEED_UNLIKE: {
-      return state;
-    }
+
     default:
       return state;
   }
