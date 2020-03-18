@@ -8,15 +8,38 @@ function arrayToKeyValue(array) {
   for (let i = 0; i < array.length; i++) {
     result[array[i].id] = array[i];
     result[array[i].id].isLiked = false;
-    console.log('현재 result 객체', result);
   }
   return result;
 }
 
+function arrayToKeyValue2(array) {
+  let result = {};
+  for (let i = 0; i < array.length; i++) {
+    if (result[array[i].feedId]) {
+      if (result[array[i].feedId].comments) {
+        result[array[i].feedId].comments.push(array[i]);
+      } else {
+        result[array[i].feedId].comments = [array[i]];
+      }
+    } else {
+      result[array[i].feedId] = {};
+      if (result[array[i].feedId].comments) {
+        result[array[i].feedId].comments.push(array[i]);
+      } else {
+        result[array[i].feedId].comments = [array[i]];
+      }
+    }
+  }
+  return result;
+}
+
+// console.log('list', dummyCommentsData.data.list);
+
 const initialState = {
   feeds: arrayToKeyValue(dummyFeedsData.data.list),
-  comments: dummyCommentsData,
+  comments: arrayToKeyValue2(dummyCommentsData.data.list),
 };
+// console.log('store', initialState.comments);
 
 const store = createStore(
   rootReducer,
