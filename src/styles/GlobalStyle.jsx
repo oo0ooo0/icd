@@ -104,8 +104,13 @@ fieldset {
 
 /* btn reset  */
 button {
-  border: 0 none;
-}
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;}
 
 /* IR effect */
 .ir_pm {
