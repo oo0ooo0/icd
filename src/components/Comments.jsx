@@ -89,8 +89,26 @@ const StyledComments = styled.div`
 
 function Comments() {
   const params = useParams();
+  console.log(params.id);
+  const commentsId = useSelector(state => state.comments[params.id]);
 
-  const comments = useSelector(state => state.comments[params.id].comments || null);
+  function isEx() {
+    if (commentsId) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  console.log(isEx(commentsId));
+
+  const comments = commentsId && commentsId.comments;
+
+  console.log(comments);
+  // console.log(isEx(comments));
+
+  // if(params.id = useSelector(state => state.comments))
+  // const comments = useSelector(state => state.comments[params.id].comments || null);
+
   return (
     <StyledComments>
       <h2 className='comment-title'>COMMENTS</h2>
@@ -104,11 +122,11 @@ function Comments() {
         <button className='button_comment'>댓글 등록</button>
       </div>
 
-      {comments.map(comment => {
-        return <Comment key={comment.id} {...comment} />;
-      })}
+      {comments &&
+        comments.map(comment => {
+          return <Comment key={comment.id} {...comment} />;
+        })}
     </StyledComments>
   );
 }
-
 export default Comments;

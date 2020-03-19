@@ -1,12 +1,9 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react';
-import styled from 'styled-components';
 import Reply from './Reply';
-
-const StyledComment = styled.div``;
 
 const Comment = function comment({ userName, createdAt, comment, replies }) {
   return (
-    <StyledComment>
+    <div>
       <div className='feedComment'>
         <dl>
           <dt>
@@ -22,13 +19,12 @@ const Comment = function comment({ userName, createdAt, comment, replies }) {
           </button>
         </div>
       </div>
-      {/* A &&  = A 가존재할떄  */}
 
       {replies &&
         replies.list.map(comment => {
           return <Reply key={comment.id} {...comment} />;
         })}
-    </StyledComment>
+    </div>
   );
 };
 

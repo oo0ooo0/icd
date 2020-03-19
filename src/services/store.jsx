@@ -39,7 +39,7 @@ const initialState = {
   feeds: arrayToKeyValue(dummyFeedsData.data.list),
   comments: arrayToKeyValue2(dummyCommentsData.data.list),
 };
-// console.log('store', initialState.comments);
+console.log('store', initialState.comments);
 
 const store = createStore(
   rootReducer,
