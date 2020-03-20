@@ -5,7 +5,6 @@ import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 
 const StyledFeeds = styled.main`
-  margin-top: 230px;
   .my-masonry-grid {
     display: flex;
     margin-left: -30px; /* gutter size offset */
