@@ -32,6 +32,7 @@ const StyledHeader = styled.header`
     margin-top: 10px;
     border-top: 1px solid lightGray;
     border-bottom: 1px solid lightGray;
+    min-width: 960px;
     .header-cont {
       display: flex;
 
