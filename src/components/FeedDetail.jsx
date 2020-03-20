@@ -61,6 +61,7 @@ const BoardArea = styled.div`
 `;
 
 function FeedDetail() {
+  console.log('aaaaaaa');
   const history = useHistory();
   const params = useParams();
   const location = useLocation();
@@ -103,7 +104,9 @@ function FeedDetail() {
     }
   }, [location.pathname]);
 
+  console.log('feed Detail!');
   if (!item) {
+    console.log('what?');
     history.push('/');
     return null;
   }

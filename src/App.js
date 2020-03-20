@@ -5,7 +5,7 @@ import Footer from './Footer';
 import GlobalStyle from './styles/GlobalStyle';
 import { MainContainer } from './components/Containers';
 import FeedDetail from './components/FeedDetail';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './services/store';
 
@@ -15,6 +15,7 @@ function App() {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
+
         <MainContainer>
           <Route path={'/'} exact>
             <Feeds />
@@ -23,9 +24,6 @@ function App() {
 
         <Route path={'/feed/:id'}>
           <FeedDetail />
-        </Route>
-        <Route>
-          <Redirect to='/' />
         </Route>
 
         <Footer />

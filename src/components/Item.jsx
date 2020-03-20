@@ -83,6 +83,10 @@ const MemoizeItem = React.memo(function Item({
     dispatch({ type: 'FEED_LIKE', payload: { id } });
   };
 
+  // console.log(id);
+
+  const shareUrl = encodeURIComponent(`https://icd-lovat.now.sh/feed/${id}`);
+  console.log(shareUrl);
   return (
     <StyledItem>
       <Link to={{ pathname: `/feed/${id}` }}>
@@ -117,13 +121,21 @@ const MemoizeItem = React.memo(function Item({
             <span>{replyCount}</span>
           </li>
           <li>
-            <a
-              target='_blank'
-              href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse'
-              class='fb-xfbml-parse-ignore'
+            <div
+              // class='fb-share-button'
+              data-href={`https://icd-lovat.now.sh/feed/${id}`}
+              data-layout='button_count'
+              data-size='small'
             >
-              <i className='fab fa-facebook-square'></i>
-            </a>
+              <a
+                target='_blank'
+                href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}%2F&amp;src=sdkpreparse`}
+                class='fb-xfbml-parse-ignore'
+              >
+                <i className='fab fa-facebook-square'></i>
+              </a>
+            </div>
+
             <span>{sharedCount}</span>
           </li>
         </ul>
