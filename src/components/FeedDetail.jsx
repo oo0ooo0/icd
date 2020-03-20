@@ -16,17 +16,18 @@ const StyledFeedDetailWrapper = styled.div`
     flex: none;
     margin-left: 4%;
     width: 34%;
-    min-height: 700px;
+    min-height: ${props => props.boardHeight}px;
+
     img {
       width: 100%;
+      margin-bottom: -1%;
     }
   }
 `;
 
 const BoardArea = styled.div`
-  padding: 38px 0;
+  padding-top: 38px;
   border-top: 2px solid #1d1e21;
-  border-bottom: 1px solid #e3e3e2;
   width: 56%;
   max-width: 990px;
   flex: none;
@@ -37,19 +38,19 @@ const BoardArea = styled.div`
   .board {
     width: 100%;
     span {
-      font: normal 900 16px;
+      font: normal 900 16px/1 'Lato';
     }
     em {
-      font: normal;
+      font: normal 400 16px/1 'Lato';
       margin-left: 10px;
     }
     h1 {
       min-height: 60px;
       margin-top: 10px;
-      font: normal 900 32px/1.4;
+      font: normal 900 32px/1.4 'Lato';
     }
     p {
-      padding: 18px 0 24px;
+      padding: 20px 0px;
       font: 16px/1.6;
       white-space: pre-wrap;
     }
@@ -66,6 +67,7 @@ function FeedDetail() {
   const mediaListRef = useRef(null);
   const boardRef = useRef(null);
   const [isScrolled, setScrolled] = useState(false);
+  const [boardHeight, setBoardHeight] = useState(0);
 
   const item = useSelector(state => state.feeds[params.id] || null);
 
@@ -80,6 +82,7 @@ function FeedDetail() {
       }
     }
   };
+
   useEffect(() => {
     if (mediaListRef.current) {
       window.addEventListener('scroll', handleScrollEvent);
@@ -90,7 +93,14 @@ function FeedDetail() {
   });
 
   useEffect(() => {
-    window.scroll(0, 0);
+    setTimeout(() => {
+      window.scroll(0, 0);
+    }, 100);
+
+    if (boardRef.current) {
+      const boardRect = boardRef.current.getBoundingClientRect();
+      setBoardHeight(boardRect.height);
+    }
   }, [location.pathname]);
 
   if (!item) {
@@ -101,26 +111,31 @@ function FeedDetail() {
     tags,
     text,
     mediaList,
-    mdInfo: { mdName, mdThumb },
+    mdInfo: { mdName },
     createdAt,
   } = item;
 
   return (
-    <StyledFeedDetailWrapper>
+    <StyledFeedDetailWrapper boardHeight={boardHeight}>
       <div className='media-list-area' ref={mediaListRef}>
         {mediaList.map((media, index) => {
           return <img key={index} src={media.url}></img>;
         })}
       </div>
 
-      <BoardArea isScrolled={isScrolled} className='board-area' ref={boardRef}>
+      <BoardArea
+        isScrolled={isScrolled}
+        className='board-area'
+        ref={boardRef}
+        // height={boardRect.height}
+      >
         <div className='board'>
           <span>{mdName}</span>
           <em>{createdAt}</em>
           <h1>{createTitle(text)}</h1>
           <FeedText>{text}</FeedText>
           {tags.map((tag, index) => {
-            return <span key={index}>#{tag}</span>;
+            return <strong key={index}>#{tag}</strong>;
           })}
         </div>
         <Comments />
