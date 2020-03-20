@@ -83,19 +83,16 @@ const MemoizeItem = React.memo(function Item({
     dispatch({ type: 'FEED_LIKE', payload: { id } });
   };
 
-  // console.log(id);
-
   const shareUrl = encodeURIComponent(`https://icd-lovat.now.sh/feed/${id}`);
-  console.log(shareUrl);
   return (
     <StyledItem>
       <Link to={{ pathname: `/feed/${id}` }}>
         <figure className='item-image-wrap'>
-          <img src={mediaList[0].url} className='item-image' />
+          <img src={mediaList[0].url} className='item-image' alt='피드 대표이미지' />
         </figure>
 
         <figure className='item-md'>
-          <img src={mdThumb} className='item-md-image' />
+          <img src={mdThumb} className='item-md-image' alt='엠디 이미지' />
           <figcaption className='item-md-name'>{mdName}</figcaption>
         </figure>
         <article className='item-info'>
@@ -122,21 +119,20 @@ const MemoizeItem = React.memo(function Item({
           </li>
           <li>
             <div
-              // class='fb-share-button'
               data-href={`https://icd-lovat.now.sh/feed/${id}`}
               data-layout='button_count'
               data-size='small'
             >
               <a
                 target='_blank'
+                rel='noopener noreferrer'
                 href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}%2F&amp;src=sdkpreparse`}
-                class='fb-xfbml-parse-ignore'
+                className='fb-xfbml-parse-ignore'
               >
                 <i className='fab fa-facebook-square'></i>
+                <span>{sharedCount}</span>
               </a>
             </div>
-
-            <span>{sharedCount}</span>
           </li>
         </ul>
       </div>

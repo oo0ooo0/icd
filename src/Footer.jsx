@@ -72,13 +72,13 @@ function Footer() {
                       <a href='#none'>02-6204-0617‬</a>
                     </li>
                     <li>
-                      <a>1:1 채팅문의</a>
+                      <a href='#none'>1:1 채팅문의</a>
                     </li>
                     <li>
-                      <a>이용약관</a>
+                      <a href='#none'>이용약관</a>
                     </li>
                     <li>
-                      <a>개인정보처리방침</a>
+                      <a href='#none'>개인정보처리방침</a>
                     </li>
                   </ul>
                 </li>
@@ -88,7 +88,7 @@ function Footer() {
                   <h3>ABOUT D.CODE</h3>
                   <ul>
                     <li>
-                      <a href='http://home.itsdcode.com/' target='_blank'>
+                      <a href='http://home.itsdcode.com/' target='_blank' rel='noopener noreferrer'>
                         디코드 소개
                       </a>
                     </li>
@@ -103,12 +103,17 @@ function Footer() {
                       <a
                         href='https://business.facebook.com/itsdcode/?business_id=1642748722674826'
                         target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <i className='fab fa-facebook-square'></i>
                       </a>
                     </li>
                     <li>
-                      <a href='https://www.instagram.com/d.code_official/?hl=ko' target='_blank'>
+                      <a
+                        href='https://www.instagram.com/d.code_official/?hl=ko'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
                         <i className='fab fa-instagram-square'></i>
                       </a>
                     </li>
@@ -120,7 +125,7 @@ function Footer() {
                   <h3>APPLICATION</h3>
                   <ul className='app-icon'>
                     <li>
-                      <a href='http://bit.ly/2swoxj8' target='_blank'>
+                      <a href='http://bit.ly/2swoxj8' target='_blank' rel='noopener noreferrer'>
                         <span className='icon-text'>
                           <i className='fab fa-apple'></i>
                         </span>
@@ -128,7 +133,7 @@ function Footer() {
                       </a>
                     </li>
                     <li>
-                      <a href='http://bit.ly/2tY1l1P' target='_blank'>
+                      <a href='http://bit.ly/2tY1l1P' target='_blank' rel='noopener noreferrer'>
                         <span className='icon-text'>
                           <i className='fab fa-google-play'></i>
                         </span>
@@ -147,7 +152,11 @@ function Footer() {
             <p>(주)엔코드 대표 정준영 | 서울시 강남구 삼성로 81길 31</p>
             <p>
               통신판매업신고번호 2016-서울강남-03628 | 등록번호 260-86-00101{' '}
-              <a href='http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2608600101' target='_blank'>
+              <a
+                href='http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2608600101'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 사업자정보확인
               </a>
             </p>

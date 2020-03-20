@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Header from './Header';
 import Feeds from './Feeds';
 import Footer from './Footer';
 import GlobalStyle from './styles/GlobalStyle';
 import { MainContainer } from './components/Containers';
 import FeedDetail from './components/FeedDetail';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './services/store';
 

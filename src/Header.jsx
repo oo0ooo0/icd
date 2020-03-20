@@ -78,13 +78,13 @@ function Header() {
         <div className='header-cont'>
           <ul className='top-menu'>
             <li>
-              <a href='#'>로그인</a>
+              <a href='#none'>로그인</a>
             </li>
             <li>
-              <a href='#'>회원가입</a>
+              <a href='#none'>회원가입</a>
             </li>
             <li>
-              <a href='#'>고객센터</a>
+              <a href='#none'>고객센터</a>
             </li>
           </ul>
         </div>
@@ -103,22 +103,22 @@ function Header() {
           <div className='gnb'>
             <ul>
               <li>
-                <a href='#'>PRE-ORDER</a>
+                <a href='#none'>PRE-ORDER</a>
               </li>
               <li>
-                <a href='#'>PROMOTION</a>
+                <a href='#none'>PROMOTION</a>
               </li>
               <li>
-                <a href='#'>BRAND</a>
+                <a href='#none'>BRAND</a>
               </li>
               <li>
-                <a href='#'>MEN</a>
+                <a href='#none'>MEN</a>
               </li>
               <li>
-                <a href='#'>WOMEN</a>
+                <a href='#none'>WOMEN</a>
               </li>
               <li>
-                <a href='#'>FEED</a>
+                <a href='#none'>FEED</a>
               </li>
             </ul>
           </div>

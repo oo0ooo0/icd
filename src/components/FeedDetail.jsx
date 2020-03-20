@@ -122,7 +122,7 @@ function FeedDetail() {
     <StyledFeedDetailWrapper boardHeight={boardHeight}>
       <div className='media-list-area' ref={mediaListRef}>
         {mediaList.map((media, index) => {
-          return <img key={index} src={media.url}></img>;
+          return <img key={index} src={media.url} alt='피드이미지'></img>;
         })}
       </div>
 
