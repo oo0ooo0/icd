@@ -54,6 +54,9 @@ const StyledItem = styled.div`
         i {
           margin-right: 5px;
         }
+        a {
+          color: #999;
+        }
       }
     }
     .item-date {
@@ -114,7 +117,13 @@ const MemoizeItem = React.memo(function Item({
             <span>{replyCount}</span>
           </li>
           <li>
-            <i className='fab fa-facebook-square'></i>
+            <a
+              target='_blank'
+              href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse'
+              class='fb-xfbml-parse-ignore'
+            >
+              <i className='fab fa-facebook-square'></i>
+            </a>
             <span>{sharedCount}</span>
           </li>
         </ul>
