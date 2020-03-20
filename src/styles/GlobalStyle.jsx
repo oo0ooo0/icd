@@ -43,7 +43,7 @@ figure {
 
 /* link reset */
 a {
-  color: #000;
+  color: #1d1e21;
   text-decoration: none;
 }
 
@@ -54,22 +54,22 @@ a:hover {
 /* title reset  */
 h1 {
   font: normal 900 48px/48px 'Lato';
-  color: #000;
+  color: #1d1e21;
 }
 
 h2 {
   font: normal 900 32px/48px 'Lato';
-  color: #000;
+  color: #1d1e21;
 }
 
 h3 {
   font: normal 500 14px/42px 'Lato';
-  color: #000;
+  color: #1d1e21;
 }
 
 h4 {
   font: normal 900 24px/34px 'Lato';
-  color: #000;
+  color: #1d1e21;
 }
 
 p {
