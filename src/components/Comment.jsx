@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef, useState } from 'react';
+import React from 'react';
 import Reply from './Reply';
 
 const Comment = function comment({ userName, createdAt, comment, replies }) {

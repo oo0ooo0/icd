@@ -1,10 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-const StyledReply = styled.div``;
-
 const Reply = function comment({ userName, createdAt, comment }) {
   return (
-    <StyledReply>
+    <div>
       <div className='reply-list feedComment'>
         <dl>
           <dt>
@@ -15,7 +12,7 @@ const Reply = function comment({ userName, createdAt, comment }) {
           <dd>{comment}</dd>
         </dl>
       </div>
-    </StyledReply>
+    </div>
   );
 };
 
