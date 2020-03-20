@@ -17,13 +17,13 @@ const StyledComments = styled.div`
     width: 100%;
     height: 90px;
     display: flex;
-    background: yellow;
+    justify-content: space-between;
 
     .textarea_comment {
       border: 1px solid gray;
-      font: normal 500 14px/18px 'Lato';
-      padding: 12px 16px;
-      width: calc(100% - 134px);
+      font: normal 500 15px/1.5 'Lato';
+      padding: 10px 15px;
+      width: calc(100% - 140px);
       height: 100%;
       border-radius: 0;
     }
@@ -32,7 +32,7 @@ const StyledComments = styled.div`
       width: 134px;
       height: 100%;
       background: #1d1e21;
-      font: normal 500 14px/32px 'Lato';
+      font: normal 500 15px/2 'Lato';
       color: #fff;
     }
   }
@@ -41,7 +41,7 @@ const StyledComments = styled.div`
     border-bottom: 1px solid #e3e3e2;
     dl {
       margin-bottom: 15px;
-      font: 400 13px/18px 'Lato';
+      font: 400 13px/1.5 'Lato';
       dt {
         margin-bottom: 10px;
         i.reply_icon {
@@ -57,7 +57,7 @@ const StyledComments = styled.div`
           padding-right: 20px;
         }
         em {
-          font-size: 13px;
+          font-size: 12px;
           color: #a6a7a9;
           font-style: normal;
           text-align: left;
@@ -89,25 +89,8 @@ const StyledComments = styled.div`
 
 function Comments() {
   const params = useParams();
-  console.log(params.id);
   const commentsId = useSelector(state => state.comments[params.id]);
-
-  function isEx() {
-    if (commentsId) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  console.log(isEx(commentsId));
-
   const comments = commentsId && commentsId.comments;
-
-  console.log(comments);
-  // console.log(isEx(comments));
-
-  // if(params.id = useSelector(state => state.comments))
-  // const comments = useSelector(state => state.comments[params.id].comments || null);
 
   return (
     <StyledComments>
