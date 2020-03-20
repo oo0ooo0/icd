@@ -1,10 +1,9 @@
-import React, { useEffect, useCallback, useRef, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import LikedButton from './LikedButton';
 import FeedText from './FeedText';
-
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 const StyledItem = styled.div`
   .item-image-wrap {
@@ -25,17 +24,19 @@ const StyledItem = styled.div`
       font-size: 20px;
       line-height: 60px;
     }
-
-    .item-info {
-      .tags {
-        margin-bottom: 10px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        h4 {
-          margin-right: 10px;
-        }
+  }
+  .item-info {
+    .tags {
+      margin-bottom: 10px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      h4 {
+        margin-right: 10px;
       }
+    }
+    ${FeedText} {
+      max-height: 263px;
     }
   }
 
