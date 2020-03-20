@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
@@ -19,14 +20,13 @@ const StyledHeader = styled.header`
     .top-menu {
       display: flex;
       justify-content: flex-end;
-        width:100%;
-        li {
-          margin-left: 50px;
+      width: 100%;
+      li {
+        margin-left: 50px;
 
-          a {
-            font: normal 400 12px/1 'Lato';
-            color: #707070;
-          }
+        a {
+          font: normal 400 12px/1 'Lato';
+          color: #707070;
         }
       }
     }
@@ -36,7 +36,7 @@ const StyledHeader = styled.header`
     margin-top: 10px;
     border-top: 1px solid lightGray;
     border-bottom: 1px solid lightGray;
-      .logo {
+    .logo {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -67,14 +67,15 @@ const StyledHeader = styled.header`
   }
 
   @media (max-width: 960px) {
+    /* header  */
     .main-menu-wrap {
       .header-cont {
         display: block;
         width: 100%;
-        .gnb ul{
-          justify-content:space-between;
-          margin-left:0px;
-          padding: 0px 10px;
+        .gnb ul {
+          justify-content: space-between;
+          margin-left: 0px;
+          padding: 0px 4%;
         }
       }
     }
@@ -128,7 +129,7 @@ function Header() {
                 <a href='#none'>WOMEN</a>
               </li>
               <li>
-                <a href='#none'>FEED</a>
+                <Link to={{ pathname: `/` }}>FEED</Link>
               </li>
             </ul>
           </div>
