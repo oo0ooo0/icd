@@ -63,6 +63,20 @@ const StyledItem = styled.div`
       font-style: italic;
     }
   }
+  @media (max-width: 960px) {
+    /* item */
+    .item-image-wrap .item-md {
+      img {
+        width: 0.8vw;
+      }
+      .item-md-name {
+        font-size: 2vw;
+      }
+    }
+    .item-date.info .tags h4 {
+      font-size: 2.4vw;
+    }
+  }
 `;
 
 const MemoizeItem = React.memo(function Item({
