@@ -61,7 +61,6 @@ const BoardArea = styled.div`
 `;
 
 function FeedDetail() {
-  console.log('aaaaaaa');
   const history = useHistory();
   const params = useParams();
   const location = useLocation();
@@ -104,9 +103,7 @@ function FeedDetail() {
     }
   }, [location.pathname]);
 
-  console.log('feed Detail!');
   if (!item) {
-    console.log('what?');
     history.push('/');
     return null;
   }
@@ -126,12 +123,7 @@ function FeedDetail() {
         })}
       </div>
 
-      <BoardArea
-        isScrolled={isScrolled}
-        className='board-area'
-        ref={boardRef}
-        // height={boardRect.height}
-      >
+      <BoardArea isScrolled={isScrolled} className='board-area' ref={boardRef}>
         <div className='board'>
           <span>{mdName}</span>
           <em>{createdAt}</em>
